@@ -84,8 +84,14 @@ def tareas():
     user = db.execute('SELECT usuario FROM usuarios WHERE id = ?', (session['user_id'],)).fetchone()
     return render_template('tareas.html', usuario=user['usuario'])
 
+
+@app.route("/index")
+def index():
+    return render_template("index.html")
+
+
 if __name__ == "__main__":
-    webbrowser.open("http://127.0.0.1:5000/login")
+    webbrowser.open("http://127.0.0.1:5000/index")
     app.run(debug=True, host='0.0.0.0', port=5000)
 
 
